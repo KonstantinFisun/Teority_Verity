@@ -28,5 +28,4 @@ C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер
 C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер\Тест по теории вероятности\Тест по теории вероятности\obj\Debug\Тест по теории вероятности.csproj.CoreCompileInputs.cache
 C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер\Тест по теории вероятности\Тест по теории вероятности\obj\Debug\Тест по теории вероятности.exe
 C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер\Тест по теории вероятности\Тест по теории вероятности\obj\Debug\Тест по теории вероятности.pdb
-C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер\Тест по теории вероятности\Тест по теории вероятности\obj\Debug\Interop.ACTIVEXLib.dll
 C:\Users\kosty\OneDrive\Документы\GitHub\Teority_Verity\Теор вер\Тест по теории вероятности\Тест по теории вероятности\obj\Debug\Тест по теории вероятности.csproj.ResolveComReference.cache

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Windows.Forms;
+using Word = Microsoft.Office.Interop.Word;
 
 
 namespace Тест_по_теории_вероятности
@@ -73,7 +74,7 @@ namespace Тест_по_теории_вероятности
 
             for (int i = 0; i < 4; i++)
             {
-                variant += "\n" + random_events[numb_quest].Answers(i);
+                variant += "\n" + (i+1)+ ". " + random_events[numb_quest].Answers(i);
 
                 if (random_events[numb_quest].Answers(i) == random_events[numb_quest].Corect_answerStr) otvet += "\n" + (num) + ". " + (i+1);
             }
@@ -97,7 +98,7 @@ namespace Тест_по_теории_вероятности
 
             for (int i = 0; i < 4; i++)
             {
-                variant += "\n" + random_variables[numb_quest].Answers(i);
+                variant += "\n" + (i + 1) + ". " + random_variables[numb_quest].Answers(i);
 
                 if (random_variables[numb_quest].Answers(i) == random_variables[numb_quest].Corect_answerStr) otvet += "\n" + (num) + ". " + (i+1);
             }
@@ -141,7 +142,7 @@ namespace Тест_по_теории_вероятности
 
             int numb_ques1, numb_ques2, numb_ques3, numb_ques4, numb_ques5, numb_ques6;
 
-            int[] random_events_num = new int[4];
+            int[] random_events_num = new int[5];
 
             //Генерация первый 3 - х вопросов
             {
@@ -167,7 +168,7 @@ namespace Тест_по_теории_вероятности
             }
 
 
-            int[] random_variables_num = new int[4];
+            int[] random_variables_num = new int[5];
 
             //Генерация второй 3 - х вопросов
             {
@@ -193,11 +194,9 @@ namespace Тест_по_теории_вероятности
 
             }
             //Заголовок
-            variant += ("Вариант № " + iter_variants);
+            variant += ("\t\t\t\t\t\tВариант № " + (iter_variants+1));
 
-            otvet += ("\nВариант №" + iter_variants);
-
-
+            otvet += ("\nВариант №" + (iter_variants+1));
 
             //Генерируем первый вопрос
             {
@@ -207,60 +206,8 @@ namespace Тест_по_теории_вероятности
 
                 Pereme(random_events[numb_ques1].Answe, numb_ques1, 1);
 
-                //Генерируем ответы на вопрос
-                /*
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                MessageBox.Show(Convert.ToString(numb1_answer));
-                MessageBox.Show(Convert.ToString(numb2_answer));
-                MessageBox.Show(Convert.ToString(numb3_answer));
-                MessageBox.Show(Convert.ToString(numb4_answer));
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_events[numb_ques1].Answers(numb1_answer);
-                variant += "\n" + random_events[numb_ques1].Answers(numb2_answer);
-                variant += "\n" + random_events[numb_ques1].Answers(numb3_answer);
-                variant += "\n" + random_events[numb_ques1].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_events[numb_ques1].Answers(numb1_answer) == random_events[numb_ques1].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_events[numb_ques1].Answers(numb2_answer) == random_events[numb_ques1].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_events[numb_ques1].Answers(numb3_answer) == random_events[numb_ques1].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_events[numb_ques1].Answers(numb4_answer) == random_events[numb_ques1].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-                */
-
+               
             }
-
-
 
             //Генерируем второй вопрос
             {
@@ -272,55 +219,8 @@ namespace Тест_по_теории_вероятности
 
                 Pereme(random_events[numb_ques2].Answe, numb_ques2, 2);
 
-                /*
-                //Генерируем ответы на вопрос
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_events[numb_ques2].Answers(numb1_answer);
-                variant += "\n" + random_events[numb_ques2].Answers(numb2_answer);
-                variant += "\n" + random_events[numb_ques2].Answers(numb3_answer);
-                variant += "\n" + random_events[numb_ques2].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_events[numb_ques2].Answers(numb1_answer) == random_events[numb_ques2].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_events[numb_ques2].Answers(numb2_answer) == random_events[numb_ques2].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_events[numb_ques2].Answers(numb3_answer) == random_events[numb_ques2].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_events[numb_ques2].Answers(numb4_answer) == random_events[numb_ques2].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-
-                */
+                
             }
-
-
 
             //Генерируем третий вопрос
             {
@@ -331,54 +231,8 @@ namespace Тест_по_теории_вероятности
                 variant += ("\n3. " + random_events[numb_ques3].Question); //Описание третий вопроса
 
                 Pereme(random_events[numb_ques3].Answe, numb_ques3, 3);
-                /*
-                //Генерируем ответы на вопрос
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_events[numb_ques3].Answers(numb1_answer);
-                variant += "\n" + random_events[numb_ques3].Answers(numb2_answer);
-                variant += "\n" + random_events[numb_ques3].Answers(numb3_answer);
-                variant += "\n" + random_events[numb_ques3].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_events[numb_ques3].Answers(numb1_answer) == random_events[numb_ques3].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_events[numb_ques3].Answers(numb2_answer) == random_events[numb_ques3].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_events[numb_ques3].Answers(numb3_answer) == random_events[numb_ques3].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_events[numb_ques3].Answers(numb4_answer) == random_events[numb_ques3].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-                */
+               
             }
-
-
 
             //Генерируем четвертый вопрос 
             {
@@ -388,57 +242,10 @@ namespace Тест_по_теории_вероятности
 
                 Pereme_2(random_variables[numb_ques4].Answe, numb_ques4, 4);
 
-                /*
-                //Генерируем ответы на вопрос
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_variables[numb_ques4].Answers(numb1_answer);
-                variant += "\n" + random_variables[numb_ques4].Answers(numb2_answer);
-                variant += "\n" + random_variables[numb_ques4].Answers(numb3_answer);
-                variant += "\n" + random_variables[numb_ques4].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_variables[numb_ques4].Answers(numb1_answer) == random_variables[numb_ques4].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_variables[numb_ques4].Answers(numb2_answer) == random_variables[numb_ques4].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_variables[numb_ques4].Answers(numb3_answer) == random_variables[numb_ques4].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_variables[numb_ques4].Answers(numb4_answer) == random_variables[numb_ques4].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-
-                */
+                
             }
 
-
-
-            //Генерируем второй вопрос
+            //Генерируем пятый вопрос
             {
                 numb_ques5 = random_variables_num[1];
 
@@ -447,111 +254,20 @@ namespace Тест_по_теории_вероятности
 
                 Pereme_2(random_variables[numb_ques5].Answe, numb_ques5, 5);
 
-                /*
-                //Генерируем ответы на вопрос
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_variables[numb_ques5].Answers(numb1_answer);
-                variant += "\n" + random_variables[numb_ques5].Answers(numb2_answer);
-                variant += "\n" + random_variables[numb_ques5].Answers(numb3_answer);
-                variant += "\n" + random_variables[numb_ques5].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_variables[numb_ques5].Answers(numb1_answer) == random_variables[numb_ques5].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_variables[numb_ques5].Answers(numb2_answer) == random_variables[numb_ques5].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_variables[numb_ques5].Answers(numb3_answer) == random_variables[numb_ques5].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_variables[numb_ques5].Answers(numb4_answer) == random_variables[numb_ques5].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-
-                */
+                
             }
 
 
-
-            //Генерируем третий вопрос
+            //Генерируем шестой вопрос
             {
                 numb_ques6 = random_variables_num[2];
 
+                
                 
                 variant += ("\n6. " + random_variables[numb_ques6].Question);
 
                 Pereme_2(random_variables[numb_ques6].Answe, numb_ques6, 6);
 
-                /*
-                //Генерируем ответы на вопрос
-                {
-                    numb1_answer = rnd.Next(0, 4); //Первый ответ
-
-                    //Второй ответ
-                    numb2_answer = rnd.Next(0, 4);
-
-                    while (numb1_answer != numb2_answer)
-                    {
-                        numb2_answer = rnd.Next(0, 4);
-                    }
-
-                    //третий ответ
-                    numb3_answer = rnd.Next(0, 4);
-
-                    while (numb3_answer != numb1_answer && numb3_answer != numb2_answer)
-                    {
-                        numb3_answer = rnd.Next(0, 4);
-                    }
-
-                    //четвертый ответ
-                    numb4_answer = rnd.Next(0, 4);
-
-                    while (numb4_answer != numb1_answer && numb4_answer != numb2_answer && numb4_answer != numb3_answer)
-                    {
-                        numb4_answer = rnd.Next(0, 4);
-                    }
-
-
-
-                }
-
-                //Вывод ответов на этот вопрос
-                variant += "\n" + random_variables[numb_ques6].Answers(numb1_answer);
-                variant += "\n" + random_variables[numb_ques6].Answers(numb2_answer);
-                variant += "\n" + random_variables[numb_ques6].Answers(numb3_answer);
-                variant += "\n" + random_variables[numb_ques6].Answers(numb4_answer);
-
-                //Выводим правильный номер в ответ
-                if (random_variables[numb_ques6].Answers(numb1_answer) == random_variables[numb_ques6].Corect_answerStr) otvet += "\n1. " + numb1_answer;
-                if (random_variables[numb_ques6].Answers(numb2_answer) == random_variables[numb_ques6].Corect_answerStr) otvet += "\n1. " + numb2_answer;
-                if (random_variables[numb_ques6].Answers(numb3_answer) == random_variables[numb_ques6].Corect_answerStr) otvet += "\n1. " + numb3_answer;
-                if (random_variables[numb_ques6].Answers(numb4_answer) == random_variables[numb_ques6].Corect_answerStr) otvet += "\n1. " + numb4_answer;
-
-                */
             }
 
         }
@@ -559,6 +275,17 @@ namespace Тест_по_теории_вероятности
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Word.Application objWord = new Word.Application(); //Создали экземпляр
+            objWord.Visible = true; //Появится
+            objWord.WindowState = Word.WdWindowState.wdWindowStateNormal; //Появление
+
+            //создаем документ
+            Word.Document objDoc = objWord.Documents.Add();
+
+            //Добавляем параграф
+            Word.Paragraph objPara;
+
             otvet = ""; //Ответов пока нет
             int count_variants = int.Parse(textBox1.Text); //Считали количество вариантов
             
@@ -566,12 +293,27 @@ namespace Тест_по_теории_вероятности
             {
                 variant = ""; //Варианта пока нет
                 Quest(i);
+
+                objPara = objDoc.Paragraphs.Add();
+                objPara.Range.Text = variant;
+                objPara = objDoc.Paragraphs.Add();
             }
 
-            MessageBox.Show(variant);
-            MessageBox.Show(otvet);
+            //MessageBox.Show(variant);
+            //MessageBox.Show(otvet);
             //Вывод ответов на тест
 
+            objPara = objDoc.Paragraphs.Add();
+            objPara.Range.Text = otvet;
+
+           
+            objDoc.SaveAs2(Directory.GetCurrentDirectory() + @"\Варианты.docx");//Путь файла
+            objDoc.Close();
+            objWord.Quit();
+
+            MessageBox.Show("Варианты успешно сгенерированны");
+
+            this.Close();
 
         }
      
@@ -579,7 +321,9 @@ namespace Тест_по_теории_вероятности
         private void Test_Load(object sender, EventArgs e)
         {
             AddQuestions();//Добавили вопросы
-       
+
+            
+
         }
 
     }
