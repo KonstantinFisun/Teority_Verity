@@ -299,8 +299,7 @@ namespace Тест_по_теории_вероятности
                 objPara = objDoc.Paragraphs.Add();
             }
 
-            //MessageBox.Show(variant);
-            //MessageBox.Show(otvet);
+            
             //Вывод ответов на тест
 
             objPara = objDoc.Paragraphs.Add();
