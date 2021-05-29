@@ -9,8 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Windows.Forms;
-using Word = Microsoft.Office.Interop.Word;
-
+using System;
+using System.Drawing;
+using Xceed.Words.NET;
+using Xceed.Document.NET;
 
 namespace Тест_по_теории_вероятности
 {
@@ -286,15 +288,7 @@ namespace Тест_по_теории_вероятности
         {
             AddQuestions_test();//Добавили вопросы
 
-            Word.Application objWord = new Word.Application(); //Создали экземпляр
-            objWord.Visible = true; //Появится
-            objWord.WindowState = Word.WdWindowState.wdWindowStateNormal; //Появление
-                 
-            //создаем документ
-            Word.Document objDoc = objWord.Documents.Add();
-
-            //Добавляем параграф
-            Word.Paragraph objPara;
+            
 
             otvet = ""; //Ответов пока нет
             int count_variants = int.Parse(textBox1.Text); //Считали количество вариантов
@@ -304,20 +298,56 @@ namespace Тест_по_теории_вероятности
                 variant = ""; //Варианта пока нет
                 Quest_test(i);
 
-                objPara = objDoc.Paragraphs.Add();
-                objPara.Range.Text = variant;
-                objPara = objDoc.Paragraphs.Add();
+                
             }
 
-            
-            //Вывод ответов на тест
+            string pathDocument = AppDomain.CurrentDomain.BaseDirectory + "example.docx";
 
-            objPara = objDoc.Paragraphs.Add();
-            objPara.Range.Text = otvet;
-           
-            objDoc.SaveAs2(Directory.GetCurrentDirectory() + @"\Варианты.docx");//Путь файла
-            objDoc.Close();
-            objWord.Quit();
+            // создаём документ
+            DocX document = DocX.Create(pathDocument);
+
+            // Вставляем параграф и указываем текст
+            document.InsertParagraph("Тест");
+
+            // вставляем параграф и передаём текст
+            document.InsertParagraph("Тест").
+                     // устанавливаем шрифт
+                     Font("Calibri").
+                     // устанавливаем размер шрифта
+                     FontSize(36).
+                     // устанавливаем цвет
+                     Color(Color.Navy).
+                     // делаем текст жирным
+                     Bold().
+                     // устанавливаем интервал между символами
+                     Spacing(15).
+                     // выравниваем текст по центру
+                     Alignment = Alignment.center;
+
+            // вставляем параграф и добавляем текст
+            Paragraph paragraph = document.InsertParagraph();
+            // выравниваем параграф по правой стороне
+            paragraph.Alignment = Alignment.right;
+
+            // добавляем отдельную строку со своим форматированием
+            paragraph.AppendLine("Тест").
+                     // устанавливаем размер шрифта
+                     FontSize(20).
+                     // добавляем курсив
+                     Italic().
+                     // устанавливаем точечное подчёркивание
+                     UnderlineStyle(UnderlineStyle.dotted).
+                     // устанавливаем цвет подчёркивания
+                     UnderlineColor(Color.DarkOrange).
+                     // добавляем выделение текста
+                     Highlight(Highlight.yellow);
+            // добавляем пустую строку
+            paragraph.AppendLine();
+            // добавляем ещё одну строку
+            paragraph.AppendLine("Тест");
+
+            // сохраняем документ
+            document.Save();
 
             MessageBox.Show("Варианты успешно сгенерированны");
        
